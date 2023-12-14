@@ -2,6 +2,7 @@ package com.example.quotescomposeapp.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
@@ -23,15 +24,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.quotescomposeapp.R
+import com.example.quotescomposeapp.models.Quote
 
 
 @Preview
 @Composable
-fun QuoteListItem() {
+fun QuoteListItem(quote: Quote,onClick:()->Unit) {
 
     Card(
         elevation = 4.dp,
-        modifier = Modifier.padding(8.dp)
+        modifier = Modifier
+            .clickable { onClick }
+            .padding(8.dp)
     ) {
         Row(modifier = Modifier.padding(16.dp)) {
             Image(
@@ -47,7 +51,7 @@ fun QuoteListItem() {
             Spacer(modifier = Modifier.padding(4.dp))
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = "Time is the most valuable thing a man can spend",
+                    text = quote.text,
                     style = MaterialTheme.typography.body2,
                     modifier = Modifier.padding(0.dp, 0.dp, 0.dp, 8.dp)
                 )
@@ -58,7 +62,7 @@ fun QuoteListItem() {
                         .height(1.dp)
                 )
                 Text(
-                    text = "Theophrastus",
+                    text = quote.author,
                     style = MaterialTheme.typography.body2,
                     fontWeight = FontWeight.Thin,
                     modifier = Modifier.padding(top = 4.dp)

@@ -19,11 +19,12 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.quotescomposeapp.R
+import com.example.quotescomposeapp.models.Quote
 
 
 @Preview
 @Composable
-fun QuoteDetail() {
+fun QuoteDetail(quote: Quote) {
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
@@ -59,13 +60,13 @@ fun QuoteDetail() {
                 )
 
                 Text(
-                    text = "Time is the most valueable thing a man can spend",
+                    text =quote.text,
                     fontFamily = FontFamily(Font(R.font.montserrat_regular)),
                     style = MaterialTheme.typography.h6
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 Text(
-                    text = "Theoprastus",
+                    text = quote.author,
                     fontFamily = FontFamily(Font(R.font.montserrat_regular)),
                     style = MaterialTheme.typography.subtitle1
                 )
