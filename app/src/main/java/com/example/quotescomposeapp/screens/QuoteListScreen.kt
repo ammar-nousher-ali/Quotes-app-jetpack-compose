@@ -15,7 +15,7 @@ import com.example.quotescomposeapp.R
 import com.example.quotescomposeapp.models.Quote
 
 @Composable
-fun QuoteListScreen(data: Array<Quote>, onClick: () -> Unit) {
+fun QuoteListScreen(data: Array<Quote>, onClick: (quote:Quote) -> Unit) {
 
     Column {
         Text(
@@ -27,11 +27,7 @@ fun QuoteListScreen(data: Array<Quote>, onClick: () -> Unit) {
             style = MaterialTheme.typography.h5,
             fontFamily = FontFamily(Font(R.font.montserrat_regular))
         )
-        QuoteList(data = data) {
-
-            onClick()
-
-        }
+        QuoteList(data = data, onClick)
 
     }
 

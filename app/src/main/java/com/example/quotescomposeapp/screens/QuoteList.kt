@@ -7,14 +7,11 @@ import com.example.quotescomposeapp.models.Quote
 
 
 @Composable
-fun QuoteList(data: Array<Quote>, onClick: () -> Unit) {
+fun QuoteList(data: Array<Quote>, onClick: (quote:Quote) -> Unit) {
 
     LazyColumn(content = {
         items(data) {
-            QuoteListItem(quote = it) {
-
-                onClick()
-            }
+            QuoteListItem(quote = it,onClick)
 
         }
     })

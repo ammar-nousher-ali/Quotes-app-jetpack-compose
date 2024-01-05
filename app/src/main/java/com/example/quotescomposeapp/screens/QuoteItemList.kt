@@ -29,12 +29,12 @@ import com.example.quotescomposeapp.models.Quote
 
 @Preview
 @Composable
-fun QuoteListItem(quote: Quote,onClick:()->Unit) {
+fun QuoteListItem(quote: Quote,onClick:(quote:Quote)->Unit) {
 
     Card(
         elevation = 4.dp,
         modifier = Modifier
-            .clickable { onClick }
+            .clickable { onClick(quote) }
             .padding(8.dp)
     ) {
         Row(modifier = Modifier.padding(16.dp)) {
